@@ -11,10 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const handleSubmit = function(event) {
   event.preventDefault();
-  // console.log("hello");
   const newListItem = document.createElement("li");
   newListItem.textContent = `${event.target.title.value} ${event.target.author.value} ${event.target.category.value}`
 
   const list = document.querySelector("ul");
   list.appendChild(newListItem);
+
+  document.getElementById("new-item-form").reset();
 };
+
+
