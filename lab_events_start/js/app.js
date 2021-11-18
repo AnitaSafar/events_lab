@@ -3,21 +3,31 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('JavaScript loaded');
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
 
   const form = document.querySelector("#new-item-form");
   form.addEventListener("submit", handleSubmit);
+
+  const body = document.querySelector("body");
+  body.appendChild(deleteButton);
+  deleteButton.addEventListener("click", handleDelete);
 });
 
 const handleSubmit = function(event) {
   event.preventDefault();
-  const newListItem = document.createElement("li");
-  newListItem.textContent = `${event.target.title.value} ${event.target.author.value} ${event.target.category.value}`
+  const newListItem = document.createElement("div");
+  newListItem.innerHTML = `<div class="wrapper"> <h3 class="reading-title">${event.target.title.value}</h3> <h4 class="subtitle">${event.target.author.value}</h4> <p class="description">${event.target.category.value}</p></div>`;
 
   const list = document.querySelector("ul");
   list.appendChild(newListItem);
 
   document.getElementById("new-item-form").reset();
+};
+
+const handleDelete = function(event) {
+  const readingList = document.querySelector("ul");
+  readingList.innerHTML = "";
 };
 
 
