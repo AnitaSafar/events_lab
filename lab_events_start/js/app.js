@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 const handleSubmit = function(event) {
   event.preventDefault();
   const newListItem = document.createElement("div");
-  newListItem.innerHTML = `<div class="wrapper"> <h3 class="reading-title">${event.target.title.value}</h3> <h4 class="subtitle">${event.target.author.value}</h4> <p class="description">${event.target.category.value}</p></div>`;
+  newListItem.classList.add("wrapper");
+  newListItem.innerHTML = `<h3 class="reading-title">${event.target.title.value}</h3> <h4 class="subtitle">${event.target.author.value}</h4> <p class="description">${event.target.category.value}</p>`;
 
   const list = document.querySelector("ul");
   list.appendChild(newListItem);
